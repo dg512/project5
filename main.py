@@ -23,3 +23,5 @@ while True :
                 s[i].color = color.red
             else : 
                 s[i].color = color.white
+    if (((s[r].pos.x- s[r].pos.x)*(s[r].pos.x- s[r].pos.x)+ (s[r].pos.y- s[r].pos.y)*(s[r].pos.y- s[r].pos.y))*((s[r].pos.x- s[r].pos.x)*(s[r].pos.x- s[r].pos.x)+ (s[r].pos.y- s[r].pos.y)*(s[r].pos.y- s[r].pos.y)))**0.5 < 4 :
+        s[r].color = color.red
