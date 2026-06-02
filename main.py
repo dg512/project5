@@ -23,11 +23,22 @@ while True :
                 s[i].color = color.red
             else : 
                 s[i].color = color.white
-     for i in (1,3):
-        if i == 1 :
-            a = s[r] 
-        else : 
-            b = s[r]
-    if (((a.pos.x- b.pos.x)*(a.pos.x- b.pos.x)+ (a.pos.y- b.pos.y)*(a.pos.y- b.pos.y))*((a.pos.x- b.pos.x)*(a.pos.x- b.pos.x)+ (a.pos.y- b.pos.y)*(a.pos.y- b.pos.y)))**0.5 < 2 : 
-            a.color = color.red
-            b.color = color.red
+    
+    for a,b in s :
+        A = s[a]
+        B = s[b]
+        
+        if A.color == color.red :
+            
+            if (  (A.pos.x- B.pos.x)**2  +  (A.pos.y- B.pos.y)**2 )**0.5 < 2 : 
+            
+                A.color = color.red
+                B.color = color.red
+         
+        elif B.color == color.red : 
+            
+            if (  (A.pos.x- B.pos.x)**2  +  (A.pos.y- B.pos.y)**2 )**0.5 < 2 :             
+                
+                A.color = color.red
+                B.color = color.red
+
