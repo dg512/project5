@@ -7,38 +7,21 @@ for i in range(20) :
     s.append(sphere(pos = vec(random.uniform(-10,10),random.uniform(-10,10),random.uniform(-10,10))))
 
 while True :
-    rate(30)
+    rate(100)
     k = keysdown()
     r = random.randint(0,19)
-    
-    for i in range(20):
-        s[i].pos.x += random.uniform(-1, 1)
-        s[i].pos.y += random.uniform(-1, 1)
-        s[i].pos.z += random.uniform(-1, 1)
-
-    if ' ' in k :
-        rate(20)
-        for i in range(20): 
-            if i == r : 
-                s[i].color = color.red
-            else : 
-                s[i].color = color.white
-    
-    for a,b in s :
-        A = s[a]
-        B = s[b]
+    if ' ' in k : 
+        s[0].color = color.red
         
-        if A.color == color.red :
-            
-            if (  (A.pos.x- B.pos.x)**2  +  (A.pos.y- B.pos.y)**2 )**0.5 < 2 : 
-            
-                A.color = color.red
-                B.color = color.red
-         
-        elif B.color == color.red : 
-            
-            if (  (A.pos.x- B.pos.x)**2  +  (A.pos.y- B.pos.y)**2 )**0.5 < 2 :             
-                
-                A.color = color.red
-                B.color = color.red
-
+    if s[r].color == color.red : 
+        u.append(s[r])
+        t = len(u)
+        p = random.randint(0,t-1)
+        for x in s :
+            if (  (u[p].pos.x- x.pos.x)**2  +  (u[p].pos.y- x.pos.y)**2 )**0.5 < 2  : 
+                x.color = color.red
+    for x in s :
+        if -10 < x.pos.x < 10 :
+            x.pos.x += random.uniform(-0.2, 0.2)
+        if -10 < x.pos.y < 10 :
+            x.pos.y += random.uniform(-0.2, 0.2)
